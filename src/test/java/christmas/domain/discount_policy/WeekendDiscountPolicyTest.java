@@ -30,7 +30,7 @@ class WeekendDiscountPolicyTest {
 
     @DisplayName("주말이고, 메인 메뉴를 시켰을 때는 할인을 받아야한다. 할인은 메인 메뉴 하나당 2023원씩 적용된다.")
     @Test
-    void discountForWeekdayWithDessertOrder() {
+    void discountAppliedForWeekendWithMainCourse() {
         int count = 2;
 
         EnumMap<Menu, Integer> steakMap = new EnumMap<>(Menu.class);
@@ -43,7 +43,7 @@ class WeekendDiscountPolicyTest {
 
     @DisplayName("주말이고, 메인 메뉴를 시키지 않았을 때는 할인을 받지 말아야 한다.")
     @Test
-    void noDiscountForWeekdayWithoutDessertOrder() {
+    void noDiscountForWeekendWithoutMainCourse() {
         EnumMap<Menu, Integer> mushRoomSoupMap = new EnumMap<>(Menu.class);
         mushRoomSoupMap.put(Menu.MUSHROOM_SOUP, 11);
         Order order = new Order(weekendDay, mushRoomSoupMap);
@@ -54,7 +54,7 @@ class WeekendDiscountPolicyTest {
 
     @DisplayName("주말이 아니면 할인을 받지 말아야 한다")
     @Test
-    void noDiscountForNonWeekdayWithDessertOrder() {
+    void noDiscountForWeekday() {
         EnumMap<Menu, Integer> steakMap = new EnumMap<>(Menu.class);
         steakMap.put(Menu.T_BONE_STEAK, 11);
         Order order = new Order(weekDay, steakMap);
