@@ -14,7 +14,6 @@ class SpecialDiscountPolicyTest {
     SpecialDiscountPolicy discountPolicy = new SpecialDiscountPolicy();
     EnumMap<Menu, Integer> empty = new EnumMap<>(Menu.class);
 
-
     @DisplayName("특별 할인 날짜에는 특별 할인을 제대로 발아야 합니다.")
     @Test
     void DiscountAmountForSpecialDays() {

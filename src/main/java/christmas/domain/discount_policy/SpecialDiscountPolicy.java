@@ -1,19 +1,16 @@
 package christmas.domain.discount_policy;
 
 import christmas.domain.Order;
-import christmas.domain.Receipt;
 
-import java.util.Set;
+import static christmas.config.DiscountConfig.*;
 
-public class SpecialDiscountPolicy implements DiscountPolicy{
-    private final Set<Integer> specialDiscountDays = Set.of(3, 10, 17, 24, 25, 31);
+public class SpecialDiscountPolicy implements DiscountPolicy {
     @Override
     public int getDiscountAmount(Order order) {
-        if(specialDiscountDays.contains(order.getDayOfMonth())) {
-            return 1000;
+        if (SPECIAL_DISCOUNT_DAYS.contains(order.getDayOfMonth())) {
+            return SPECIAL_DISCOUNT_AMOUNT;
         }
 
         return 0;
     }
-
 }
