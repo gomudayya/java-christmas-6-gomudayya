@@ -1,6 +1,5 @@
 package christmas.domain.discount_policy;
 
-import christmas.config.DiscountConfig;
 import christmas.constant.Menu;
 import christmas.domain.Order;
 import org.junit.jupiter.api.DisplayName;

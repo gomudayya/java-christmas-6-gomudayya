@@ -2,7 +2,8 @@ package christmas.domain.discount_policy;
 
 import christmas.domain.Order;
 
-import static christmas.config.DiscountConfig.*;
+import static christmas.config.DiscountConfig.SPECIAL_DISCOUNT_AMOUNT;
+import static christmas.config.DiscountConfig.SPECIAL_DISCOUNT_DAYS;
 
 public class SpecialDiscountPolicy implements DiscountPolicy {
     @Override

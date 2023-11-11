@@ -39,4 +39,8 @@ public class Order {
     public int getDayOfMonth() {
         return localDate.getDayOfMonth();
     }
+
+    public int getAmountBeforeDiscount() {
+        return 0;
+    }
 }
