@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class DiscountPolicySet {
-    public Set<DiscountPolicy> discountPolicies = new HashSet<>();
+    private Set<DiscountPolicy> discountPolicies = new HashSet<>();
 
-    public DiscountPolicySet(Set<DiscountPolicy> discountPolicies) {
+    public DiscountPolicySet() {
         discountPolicies.add(new DdayDiscountPolicy());
         discountPolicies.add(new SpecialDiscountPolicy());
         discountPolicies.add(new WeekdayDiscountPolicy());
