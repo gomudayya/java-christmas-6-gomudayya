@@ -1,5 +1,6 @@
 package christmas.domain.discount_policy;
 
+import christmas.config.DiscountConfig;
 import christmas.constant.Menu;
 import christmas.domain.Order;
 import org.junit.jupiter.api.DisplayName;
@@ -16,8 +17,8 @@ class DdayDiscountPolicyTest {
     @DisplayName("1일부터 25일까지는 dDay할인이 적용되어야 한다.")
     @Test
     void dDayDiscountTestForDay1_25() {
-        int discountAmount = discountPolicy.getDiscountAmount(new Order(15, empty));
-        assertThat(discountAmount).isEqualTo(2400);
+        int discountAmount = discountPolicy.getDiscountAmount(new Order(1, empty));
+        assertThat(discountAmount).isEqualTo(1000);
 
         discountAmount = discountPolicy.getDiscountAmount(new Order(25, empty));
         assertThat(discountAmount).isEqualTo(3400);

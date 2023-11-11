@@ -13,7 +13,7 @@ public class DdayDiscountPolicy implements DiscountPolicy {
     public int getDiscountAmount(Order order) {
         int dayOfMonth = order.getDayOfMonth();
         if (DDAY_DISCOUNT_START_DAY <= dayOfMonth && dayOfMonth <= DDAY_DISCOUNT_END_DAY) {
-            return DDAY_DISCOUNT_AMOUNT_PER_DAY + (dayOfMonth * DDAY_DISCOUNT_BASE_AMOUNT);
+            return DDAY_DISCOUNT_BASE_AMOUNT + (dayOfMonth * DDAY_DISCOUNT_AMOUNT_PER_DAY);
         }
 
         return 0;
