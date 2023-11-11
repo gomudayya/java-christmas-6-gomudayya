@@ -9,7 +9,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public enum TestDate {
     WEEKEND_DAY(2),
     WEEKDAY(3);
-
     private final int dayOfMonth;
 
     TestDate(int dayOfMonth) {

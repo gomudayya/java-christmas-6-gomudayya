@@ -36,22 +36,7 @@ public class Order {
                 .mapToInt(Map.Entry::getValue)
                 .sum();
     }
-    public int getMainCourseQuantity() {
-        return (int) menuQuantityMap.keySet()
-                .stream()
-                .filter(menu -> menu.isInCategory(Category.MAIN_COURSE))
-                .count();
-    }
-
     public int getDayOfMonth() {
         return localDate.getDayOfMonth();
-    }
-
-    public int getDessertMenuQuantity() {
-        return menuQuantityMap.entrySet().stream()
-                .filter(entry -> entry.getKey().isInCategory(Category.DESSERT))
-                .mapToInt(Map.Entry::getValue)
-                .sum();
-
     }
 }
