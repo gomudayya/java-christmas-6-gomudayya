@@ -33,13 +33,9 @@ class WeekendDiscountPolicyTest {
     void discountForWeekdayWithDessertOrder() {
         int count = 2;
 
-        EnumMap<Menu, Integer> steakOrderMap = new EnumMap<>(Menu.class);
-        steakOrderMap.put(Menu.T_BONE_STEAK, count);
-        Order order = new Order(weekendDay, steakOrderMap);
-
-        if (order.isWeekday()) {
-            throw new IllegalArgumentException("테스트 조건에 맞추기 위해서는 주말주문이어야 합니다.");
-        }
+        EnumMap<Menu, Integer> steakMap = new EnumMap<>(Menu.class);
+        steakMap.put(Menu.T_BONE_STEAK, count);
+        Order order = new Order(weekendDay, steakMap);
 
         int discountAmount = discountPolicy.getDiscountAmount(order);
         assertThat(discountAmount).isEqualTo(2023 * count);
@@ -59,9 +55,9 @@ class WeekendDiscountPolicyTest {
     @DisplayName("주말이 아니면 할인을 받지 말아야 한다")
     @Test
     void noDiscountForNonWeekdayWithDessertOrder() {
-        EnumMap<Menu, Integer> steakOrderMap = new EnumMap<>(Menu.class);
-        steakOrderMap.put(Menu.T_BONE_STEAK, 11);
-        Order order = new Order(weekDay, steakOrderMap);
+        EnumMap<Menu, Integer> steakMap = new EnumMap<>(Menu.class);
+        steakMap.put(Menu.T_BONE_STEAK, 11);
+        Order order = new Order(weekDay, steakMap);
 
         int discountAmount = discountPolicy.getDiscountAmount(order);
         assertThat(discountAmount).isEqualTo(0);

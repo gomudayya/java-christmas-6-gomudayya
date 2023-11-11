@@ -31,28 +31,22 @@ class WeekdayDiscountPolicyTest {
     @DisplayName("평일이고, 디저트 메뉴를 시켰을 때는 할인을 받아야한다. 할인은 디저트메뉴 하나당 2023원씩 적용된다.")
     @Test
     void discountForWeekdayWithDessertOrder() {
-        EnumMap<Menu, Integer> iceCream2 = new EnumMap<>(Menu.class);
-        iceCream2.put(Menu.ICE_CREAM, 2);
-        Order order = new Order(3, iceCream2);
+        int count = 2;
 
-        if (order.isWeekend()) {
-            throw new IllegalArgumentException("테스트 조건에 맞추기 위해서는 평일주문이어야 합니다.");
-        }
+        EnumMap<Menu, Integer> icecreamMap = new EnumMap<>(Menu.class);
+        icecreamMap.put(Menu.ICE_CREAM, count);
+        Order order = new Order(weekDay, icecreamMap);
 
         int discountAmount = discountPolicy.getDiscountAmount(order);
-        assertThat(discountAmount).isEqualTo(2023 * 2);
+        assertThat(discountAmount).isEqualTo(2023 * count);
     }
 
     @DisplayName("평일이고, 디저트 메뉴를 시키지 않았을 때는 할인을 받지 말아야 한다.")
     @Test
     void noDiscountForWeekdayWithoutDessertOrder() {
         EnumMap<Menu, Integer> mushRoomSoup2 = new EnumMap<>(Menu.class);
-        mushRoomSoup2.put(Menu.MUSHROOM_SOUP, 2);
-        Order order = new Order(3, mushRoomSoup2);
-
-        if (order.isWeekend()) {
-            throw new IllegalArgumentException("테스트 조건에 맞추기 위해서는 평일주문이어야 합니다.");
-        }
+        mushRoomSoup2.put(Menu.MUSHROOM_SOUP, 11);
+        Order order = new Order(weekDay, mushRoomSoup2);
 
         int discountAmount = discountPolicy.getDiscountAmount(order);
         assertThat(discountAmount).isEqualTo(0);
@@ -62,12 +56,8 @@ class WeekdayDiscountPolicyTest {
     @Test
     void noDiscountForNonWeekdayWithDessertOrder() {
         EnumMap<Menu, Integer> iceCream2 = new EnumMap<>(Menu.class);
-        iceCream2.put(Menu.ICE_CREAM, 2);
-        Order order = new Order(2, iceCream2); // 주말 주문
-
-        if (order.isWeekday()) {
-            throw new IllegalArgumentException("테스트 조건에 맞추기 위해서는 평일이 아니어야 합니다.");
-        }
+        iceCream2.put(Menu.ICE_CREAM, 11);
+        Order order = new Order(weekendDay, iceCream2); // 주말 주문
 
         int discountAmount = discountPolicy.getDiscountAmount(order);
         assertThat(discountAmount).isEqualTo(0);
