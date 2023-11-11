@@ -1,4 +1,4 @@
-package christmas.domain.discount_policy.constant;
+package christmas.domain.test_constant;
 
 import christmas.domain.Order;
 import org.junit.jupiter.api.DisplayName;

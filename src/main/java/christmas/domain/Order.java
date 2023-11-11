@@ -11,7 +11,7 @@ import java.util.Map;
 public class Order {
 
     private LocalDate localDate = LocalDate.of(2023, 12, 1);
-    private Map<Menu, Integer> menuQuantityMap = new EnumMap<>(Menu.class); // 메뉴 수량
+    private EnumMap<Menu, Integer> menuQuantityMap = new EnumMap<>(Menu.class); // 메뉴 수량
 
 
     public Order(String order) {
@@ -40,7 +40,9 @@ public class Order {
         return localDate.getDayOfMonth();
     }
 
-    public int getAmountBeforeDiscount() {
-        return 0;
+    public int getTotalPrice() {
+        return menuQuantityMap.entrySet().stream()
+                .mapToInt(entry -> entry.getKey().getPrice() * entry.getValue())
+                .sum();
     }
 }
