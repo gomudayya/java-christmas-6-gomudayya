@@ -1,4 +1,4 @@
-package christmas.domain.concrete_discount;
+package christmas.domain.dicount_policy;
 
 import christmas.domain.Order;
 import org.junit.jupiter.api.DisplayName;

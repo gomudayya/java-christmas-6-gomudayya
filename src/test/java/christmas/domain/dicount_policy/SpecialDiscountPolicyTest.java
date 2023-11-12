@@ -1,4 +1,4 @@
-package christmas.domain.concrete_discount;
+package christmas.domain.dicount_policy;
 
 import christmas.constant.Menu;
 import christmas.domain.Order;

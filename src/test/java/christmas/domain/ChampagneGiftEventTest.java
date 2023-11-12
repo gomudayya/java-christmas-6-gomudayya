@@ -1,6 +1,7 @@
 package christmas.domain;
 
 import christmas.constant.Menu;
+import christmas.domain.gift_policy.ChampagneGiftPolicy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("총 결제 금액이 12만원 이상이면 샴페인 이벤트의 자격이 있다.")
 class ChampagneGiftEventTest {
 
-    ChampagneGiftEvent champagneGiftEvent = new ChampagneGiftEvent();
+    ChampagneGiftPolicy champagneGiftEvent = new ChampagneGiftPolicy();
 
     @DisplayName("총 결제 금액이 12만원 이상이면 샴페인 이벤트의 자격이 있다.")
     @Test

@@ -1,7 +1,6 @@
-package christmas.domain.concrete_discount;
+package christmas.domain.dicount_policy;
 
 import christmas.constant.BenefitType;
-import christmas.domain.DiscountPolicy;
 import christmas.domain.Order;
 
 import static christmas.config.DiscountConfig.SPECIAL_DISCOUNT_AMOUNT;

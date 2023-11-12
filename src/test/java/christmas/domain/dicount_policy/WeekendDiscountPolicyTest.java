@@ -1,4 +1,4 @@
-package christmas.domain.concrete_discount;
+package christmas.domain.dicount_policy;
 
 import christmas.constant.Menu;
 import christmas.domain.Order;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.EnumMap;
 
-import static christmas.domain.concrete_discount.TestDate.*;
+import static christmas.domain.dicount_policy.TestDate.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class WeekendDiscountPolicyTest {

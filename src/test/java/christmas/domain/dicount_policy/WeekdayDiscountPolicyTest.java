@@ -1,4 +1,4 @@
-package christmas.domain.concrete_discount;
+package christmas.domain.dicount_policy;
 
 import christmas.constant.Menu;
 import christmas.domain.Order;
@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.EnumMap;
 
-import static christmas.domain.concrete_discount.TestDate.WEEKDAY;
-import static christmas.domain.concrete_discount.TestDate.WEEKEND_DAY;
+import static christmas.domain.dicount_policy.TestDate.WEEKDAY;
+import static christmas.domain.dicount_policy.TestDate.WEEKEND_DAY;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class WeekdayDiscountPolicyTest {
