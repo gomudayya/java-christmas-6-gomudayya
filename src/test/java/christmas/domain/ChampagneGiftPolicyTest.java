@@ -10,7 +10,7 @@ import java.util.EnumMap;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("총 결제 금액이 12만원 이상이면 샴페인 이벤트의 자격이 있다.")
-class ChampagneGiftEventTest {
+class ChampagneGiftPolicyTest {
 
     ChampagneGiftPolicy champagneGiftEvent = new ChampagneGiftPolicy();
 

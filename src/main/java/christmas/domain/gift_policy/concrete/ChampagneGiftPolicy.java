@@ -5,7 +5,8 @@ import christmas.constant.Menu;
 import christmas.domain.Order;
 import christmas.domain.gift_policy.GiftPolicy;
 
-import static christmas.config.EventConfig.CHAMPAGNE_THRESHOLD;
+import static christmas.config.GiftConfig.CHAMPAGNE_THRESHOLD;
+
 
 public class ChampagneGiftPolicy implements GiftPolicy {
     public boolean hasEligibility(Order order) {
