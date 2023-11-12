@@ -13,7 +13,9 @@ public class Order {
     private LocalDate localDate;
     private EnumMap<Menu, Integer> menuQuantityMap = new EnumMap<>(Menu.class); // 메뉴 수량
 
-    public Order(String order) {
+    public Order(LocalDate localDate, EnumMap<Menu, Integer> menuQuantityMap) {
+        this.localDate = localDate;
+        this.menuQuantityMap = menuQuantityMap;
     }
 
     public Order(int dayOfMonth, EnumMap<Menu, Integer> menuQuantityMap) {

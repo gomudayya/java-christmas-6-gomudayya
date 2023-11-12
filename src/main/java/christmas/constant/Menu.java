@@ -1,6 +1,8 @@
 package christmas.constant;
 
 
+import java.util.Arrays;
+
 public enum Menu {
     MUSHROOM_SOUP("양송이수프", 6_000, Category.APPETIZER),
     TAPAS("타파스", 5_500, Category.APPETIZER),
@@ -31,5 +33,17 @@ public enum Menu {
 
     public boolean isInCategory(Category category) {
         return this.category == category;
+    }
+
+    public static boolean contain(String menuName) {
+        return Arrays.stream(values())
+                .anyMatch(menu -> menu.name.equals(menuName));
+    }
+
+    public static Menu getMenuByName(String name) {
+        return Arrays.stream(values())
+                .filter(menu -> menu.name.equals(name))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("해당하는 메뉴가 없습니다: " + name));
     }
 }
