@@ -1,4 +1,4 @@
-package christmas.domain.discount_policy;
+package christmas.domain.concrete_discount;
 
 import christmas.constant.Menu;
 import christmas.domain.Order;
@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.EnumMap;
 
-import static christmas.domain.test_constant.TestDate.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class WeekdayDiscountPolicyTest {

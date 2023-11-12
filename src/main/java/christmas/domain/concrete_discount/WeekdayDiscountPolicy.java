@@ -1,6 +1,7 @@
-package christmas.domain.discount_policy;
+package christmas.domain.concrete_discount;
 
 import christmas.constant.Category;
+import christmas.domain.DiscountPolicy;
 import christmas.domain.Order;
 
 import static christmas.config.DiscountConfig.WEEKDAY_DISCOUNT_AMOUNT;
