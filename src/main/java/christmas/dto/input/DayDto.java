@@ -1,15 +1,9 @@
 package christmas.dto.input;
 
-import validator.CommonValidator;
-
 public class DayDto {
     int dayOfMonth;
 
     public DayDto(String input) {
-        validate(input);
-    }
-
-    private void validate(String input) {
         try {
             int day = Integer.parseInt(input);
             validateDay(day);
@@ -24,7 +18,7 @@ public class DayDto {
         }
     }
 
-    public int getDayOfMonth() {
+    public int  getDayOfMonth() {
         return dayOfMonth;
     }
 }

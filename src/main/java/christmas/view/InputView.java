@@ -14,28 +14,21 @@ public class InputView {
 
     private final String ORDER_MESSAGE = "주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)";
 
-    public int readDate() {
+    public DayDto readDate() {
         System.out.println(INFORMATION_MESSAGE);
-
-        DayDto dayDto = processInput(DayDto::new);
-
-        return dayDto.getDayOfMonth();
+        return processInput(DayDto::new);
     }
 
-    public Order readOrder(int dayOfMonth) {
+    public OrderDto readOrder() {
         System.out.println(ORDER_MESSAGE);
-
-        OrderDto orderDto = processInput(OrderDto::new);
-
-        return orderDto.toOrder();
+        return processInput(OrderDto::new);
     }
 
-    private <R> R processInput(Function<String, R> function) {
+    private <R> R processInput(Function<String, R> inputDtoConstructor) {
         while (true) {
             try {
                 String input = Console.readLine();
-                R dto = function.apply(input);
-                return dto;
+                return inputDtoConstructor.apply(input);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }

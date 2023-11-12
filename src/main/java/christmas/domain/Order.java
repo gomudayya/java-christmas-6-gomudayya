@@ -10,8 +10,8 @@ import java.util.Map;
 
 public class Order {
 
-    private LocalDate localDate;
-    private EnumMap<Menu, Integer> menuQuantityMap = new EnumMap<>(Menu.class); // 메뉴 수량
+    private final LocalDate localDate;
+    private final EnumMap<Menu, Integer> menuQuantityMap;
 
     public Order(LocalDate localDate, EnumMap<Menu, Integer> menuQuantityMap) {
         this.localDate = localDate;

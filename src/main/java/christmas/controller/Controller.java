@@ -2,6 +2,8 @@ package christmas.controller;
 
 import christmas.domain.Order;
 import christmas.domain.Receipt;
+import christmas.dto.input.DayDto;
+import christmas.dto.input.OrderDto;
 import christmas.service.PaymentService;
 import christmas.view.InputView;
 import christmas.view.OutputView;
@@ -18,9 +20,10 @@ public class Controller {
     }
 
     public void launch() {
-        int dayOfMonth = inputView.readDate();
+        DayDto dayDto = inputView.readDate();
+        OrderDto orderDto = inputView.readOrder();
 
-        Order order = inputView.readOrder(dayOfMonth);
+        Order order = orderDto.toOrder(dayDto);
 
         Receipt receipt = paymentService.getEstimatedReceipt(order);
 
