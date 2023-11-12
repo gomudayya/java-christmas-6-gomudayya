@@ -8,7 +8,7 @@ import java.util.EnumMap;
 import java.util.regex.Pattern;
 
 public class OrderDto {
-    private static final Pattern pattern = Pattern.compile("([가-힣]+)-([0-9]+)");
+    private static final Pattern pattern = Pattern.compile("([가-힣]+)-([0-9]+) (,([가-힣]+)-([0-9]+))*");
     private final EnumMap<Menu, Integer> menuQuantityMap = new EnumMap<>(Menu.class); // 메뉴 수량
 
     public OrderDto(String input) {
@@ -36,13 +36,16 @@ public class OrderDto {
     private void validateTotalCount(String input) {
         String[] menuAndQuantity = input.split(",");
 
-        int totalCount = Arrays.stream(menuAndQuantity).mapToInt(menuQuantity -> {
+        if (getTotalOrderCount(menuAndQuantity) > 20) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private static int getTotalOrderCount(String[] menuAndQuantity) {
+        return Arrays.stream(menuAndQuantity).mapToInt(menuQuantity -> {
             String[] split = menuQuantity.split("-");
             return Integer.parseInt(split[1]);
         }).sum();
-
-        if (totalCount > 20)
-            throw new IllegalArgumentException();
     }
 
     private void parseMenuOrder(String input) {
