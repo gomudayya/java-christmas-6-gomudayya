@@ -1,10 +1,10 @@
 package christmas.domain.dicount_policy;
 
-import christmas.constant.BenefitType;
+import christmas.constant.Benefit;
 import christmas.domain.Order;
 
 public interface DiscountPolicy {
     int getDiscountAmount(Order order);
 
-    BenefitType getBenefitType();
+    Benefit getBenefitType();
 }

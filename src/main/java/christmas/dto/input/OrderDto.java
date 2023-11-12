@@ -1,5 +1,6 @@
 package christmas.dto.input;
 
+import christmas.constant.Category;
 import christmas.constant.Menu;
 import christmas.domain.Order;
 
@@ -8,7 +9,7 @@ import java.util.EnumMap;
 import java.util.regex.Pattern;
 
 public class OrderDto {
-    private static final Pattern pattern = Pattern.compile("([가-힣]+)-([0-9]+) (,([가-힣]+)-([0-9]+))*");
+    private static final Pattern pattern = Pattern.compile("([가-힣]+)-([0-9]+)(,([가-힣]+)-([0-9]+))*");
     private final EnumMap<Menu, Integer> menuQuantityMap = new EnumMap<>(Menu.class); // 메뉴 수량
 
     public OrderDto(String input) {
@@ -17,10 +18,19 @@ public class OrderDto {
         try {
             validate(input);
             parseMenuOrder(input);
+            if (hasOnlyBeverage()) {
+                throw new IllegalArgumentException();
+            }
         } catch (Exception e) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
+
+    private boolean hasOnlyBeverage() {
+        return menuQuantityMap.keySet().stream()
+                .allMatch(menu -> menu.belongToCategory(Category.BEVERAGE));
+    }
+
 
     private void validate(String input) {
         validateFormat(input);

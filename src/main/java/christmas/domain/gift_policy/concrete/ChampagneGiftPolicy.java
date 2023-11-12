@@ -1,6 +1,6 @@
 package christmas.domain.gift_policy.concrete;
 
-import christmas.constant.BenefitType;
+import christmas.constant.Benefit;
 import christmas.constant.Menu;
 import christmas.domain.Order;
 import christmas.domain.gift_policy.GiftPolicy;
@@ -16,14 +16,14 @@ public class ChampagneGiftPolicy implements GiftPolicy {
     @Override
     public int getGiftAmount(Order order) {
         if (order.getTotalPrice() >= CHAMPAGNE_THRESHOLD) {
-            return Menu.CHAMPAGNE.getPrice();
+            return 1;
         }
-
         return 0;
     }
 
     @Override
-    public BenefitType getBenefitType() {
-        return BenefitType.CHAMPAGNE_GIFT;
+    public Menu getGiftMenu() {
+        return Menu.CHAMPAGNE;
     }
+
 }

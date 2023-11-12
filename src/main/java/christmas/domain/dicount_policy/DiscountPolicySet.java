@@ -25,7 +25,7 @@ public class DiscountPolicySet {
             int discountAmount = discountPolicy.getDiscountAmount(order);
 
             if (discountAmount != 0) {
-                benefitDetails.addBenefit(discountPolicy.getBenefitType(), discountAmount);
+                benefitDetails.addDiscountBenefit(discountPolicy.getBenefitType(), discountAmount);
             }
         }
     }

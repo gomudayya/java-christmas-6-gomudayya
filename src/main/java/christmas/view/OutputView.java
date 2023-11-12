@@ -1,6 +1,11 @@
 package christmas.view;
 
+import christmas.constant.Benefit;
+import christmas.constant.Menu;
 import christmas.domain.Receipt;
+
+import java.util.EnumMap;
+import java.util.Map;
 
 public class OutputView {
 
@@ -17,5 +22,35 @@ public class OutputView {
         System.out.println(INFORMATION_MESSAGE);
 
         System.out.println(ORDER_MENU);
+        Map<Menu, Integer> order = receipt.getOrder();
+        order.forEach((menu, quantity) -> {
+            System.out.println(menu.getName() + quantity);
+        });
+
+        System.out.println(PRICE_BEFORE_DISCOUNT);
+        System.out.println(receipt.getPriceBeforeDiscount());;
+
+        System.out.println(GIFT_MENU);
+        Map<Menu, Integer> giftMenus = receipt.getGiftMenus();
+        giftMenus.forEach((menu, integer) -> {
+            System.out.print(menu.getName());
+            System.out.println(integer + "개");
+        });
+
+        System.out.println(BENEFIT_LIST);
+        EnumMap<Benefit, Integer> benefitList = receipt.getBenefitList();
+        benefitList.forEach((benefit, money) -> {
+            System.out.print(benefit.getName() + ":");
+            System.out.println(money);
+        });
+
+        System.out.println(TOTAL_BENEFIT_AMOUNT);
+        System.out.println(receipt.getTotalBenefit());
+
+        System.out.println(PRICE_AFTER_DISCOUNT);
+        System.out.println(receipt.getPriceAfterDiscount());
+
+        System.out.println(EVENT_BADGE_OF_DECEMBER);
+        System.out.println(receipt.getBadgeName());
     }
 }

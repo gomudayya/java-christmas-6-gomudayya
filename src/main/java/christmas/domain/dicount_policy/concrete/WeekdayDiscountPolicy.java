@@ -1,7 +1,7 @@
 package christmas.domain.dicount_policy.concrete;
 
 import christmas.constant.Category;
-import christmas.constant.BenefitType;
+import christmas.constant.Benefit;
 import christmas.domain.Order;
 import christmas.domain.dicount_policy.DiscountPolicy;
 
@@ -20,7 +20,7 @@ public class WeekdayDiscountPolicy implements DiscountPolicy {
     }
 
     @Override
-    public BenefitType getBenefitType() {
-        return BenefitType.WEEKDAY_DISCOUNT;
+    public Benefit getBenefitType() {
+        return Benefit.WEEKDAY_DISCOUNT;
     }
 }

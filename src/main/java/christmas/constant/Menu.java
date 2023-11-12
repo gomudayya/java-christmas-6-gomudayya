@@ -31,7 +31,7 @@ public enum Menu {
         return price;
     }
 
-    public boolean isInCategory(Category category) {
+    public boolean belongToCategory(Category category) {
         return this.category == category;
     }
 
@@ -45,5 +45,9 @@ public enum Menu {
                 .filter(menu -> menu.name.equals(name))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("해당하는 메뉴가 없습니다: " + name));
+    }
+
+    public String getName() {
+        return name;
     }
 }

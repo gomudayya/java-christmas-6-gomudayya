@@ -5,6 +5,7 @@ import christmas.constant.Menu;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -33,7 +34,7 @@ public class Order {
 
     public int countItemsInCategory(Category category) {
         return menuQuantityMap.entrySet().stream()
-                .filter(entry -> entry.getKey().isInCategory(category))
+                .filter(entry -> entry.getKey().belongToCategory(category))
                 .mapToInt(Map.Entry::getValue)
                 .sum();
     }
@@ -46,5 +47,9 @@ public class Order {
         return menuQuantityMap.entrySet().stream()
                 .mapToInt(entry -> entry.getKey().getPrice() * entry.getValue())
                 .sum();
+    }
+
+    public Map<Menu, Integer> getMenuQuantityMap() {
+        return Collections.unmodifiableMap(menuQuantityMap);
     }
 }

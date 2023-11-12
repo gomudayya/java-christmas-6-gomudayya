@@ -19,7 +19,7 @@ public class GiftPolicySet {
             int giftAmount = giftPolicy.getGiftAmount(order);
 
             if (giftAmount != 0) {
-                benefitDetails.addBenefit(giftPolicy.getBenefitType(), giftAmount);
+                benefitDetails.addGiftBenefit(giftPolicy.getGiftMenu(), giftAmount);
             }
         }
     }
