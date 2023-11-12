@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.EnumMap;
 
+import static christmas.domain.concrete_discount.TestDate.WEEKDAY;
+import static christmas.domain.concrete_discount.TestDate.WEEKEND_DAY;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class WeekdayDiscountPolicyTest {

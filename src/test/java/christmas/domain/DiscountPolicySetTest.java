@@ -1,8 +1,6 @@
-package christmas.domain.concrete_discount;
+package christmas.domain;
 
 import christmas.constant.Menu;
-import christmas.domain.DiscountPolicySet;
-import christmas.domain.Order;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +9,7 @@ import java.util.EnumMap;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class DiscountPolicySetTest {
-    DiscountPolicySet discountPolicySet = new DiscountPolicySet();
+    BenefitSet discountPolicySet = new BenefitSet();
 
     @DisplayName("d-day할인과, 주말 할인(메인 메뉴 필수)을 적용받는 주문이 올바르게 할인 금액을 반환하는지 테스트")
     @Test

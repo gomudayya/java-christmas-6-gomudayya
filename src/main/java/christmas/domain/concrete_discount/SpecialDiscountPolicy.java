@@ -1,5 +1,6 @@
 package christmas.domain.concrete_discount;
 
+import christmas.constant.BenefitType;
 import christmas.domain.DiscountPolicy;
 import christmas.domain.Order;
 
@@ -14,5 +15,10 @@ public class SpecialDiscountPolicy implements DiscountPolicy {
         }
 
         return 0;
+    }
+
+    @Override
+    public BenefitType getBenefitType() {
+        return BenefitType.SPECIAL_DISCOUNT;
     }
 }

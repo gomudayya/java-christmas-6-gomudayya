@@ -1,14 +1,14 @@
 package christmas.domain;
 
-import christmas.constant.Menu;
-
-import java.util.EnumMap;
-import java.util.Map;
+import christmas.constant.Badge;
 
 public class Receipt {
-    private int dayOfMonth;
-    private final Map<Menu, Integer> order = new EnumMap<>(Menu.class);
-
-    private int totalPrice;
-
+    private final Order order;
+    private final BenefitDetails discountDetails;
+    private Badge badge;
+    public Receipt(Order order, BenefitDetails discountDetails, Badge badge) {
+        this.order = order;
+        this.discountDetails = discountDetails;
+        this.badge = badge;
+    }
 }
