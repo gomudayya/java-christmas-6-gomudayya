@@ -2,11 +2,10 @@ package christmas.domain.dicount_policy;
 
 import christmas.domain.BenefitDetails;
 import christmas.domain.Order;
-import christmas.domain.dicount_policy.DdayDiscountPolicy;
-import christmas.domain.dicount_policy.DiscountPolicy;
-import christmas.domain.dicount_policy.SpecialDiscountPolicy;
-import christmas.domain.dicount_policy.WeekdayDiscountPolicy;
-import christmas.domain.dicount_policy.WeekendDiscountPolicy;
+import christmas.domain.dicount_policy.concrete.DdayDiscountPolicy;
+import christmas.domain.dicount_policy.concrete.SpecialDiscountPolicy;
+import christmas.domain.dicount_policy.concrete.WeekdayDiscountPolicy;
+import christmas.domain.dicount_policy.concrete.WeekendDiscountPolicy;
 
 import java.util.HashSet;
 import java.util.Set;

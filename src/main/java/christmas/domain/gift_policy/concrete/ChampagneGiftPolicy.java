@@ -1,8 +1,9 @@
-package christmas.domain.gift_policy;
+package christmas.domain.gift_policy.concrete;
 
 import christmas.constant.BenefitType;
 import christmas.constant.Menu;
 import christmas.domain.Order;
+import christmas.domain.gift_policy.GiftPolicy;
 
 import static christmas.config.EventConfig.CHAMPAGNE_THRESHOLD;
 

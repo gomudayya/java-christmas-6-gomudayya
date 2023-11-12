@@ -1,8 +1,9 @@
-package christmas.domain.dicount_policy;
+package christmas.domain.dicount_policy.concrete;
 
 import christmas.constant.Category;
 import christmas.constant.BenefitType;
 import christmas.domain.Order;
+import christmas.domain.dicount_policy.DiscountPolicy;
 
 import static christmas.config.DiscountConfig.WEEKEND_DISCOUNT_AMOUNT;
 

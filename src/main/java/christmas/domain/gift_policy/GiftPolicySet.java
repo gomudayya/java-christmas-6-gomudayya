@@ -2,8 +2,7 @@ package christmas.domain.gift_policy;
 
 import christmas.domain.BenefitDetails;
 import christmas.domain.Order;
-import christmas.domain.gift_policy.ChampagneGiftPolicy;
-import christmas.domain.gift_policy.GiftPolicy;
+import christmas.domain.gift_policy.concrete.ChampagneGiftPolicy;
 
 import java.util.HashSet;
 import java.util.Set;
