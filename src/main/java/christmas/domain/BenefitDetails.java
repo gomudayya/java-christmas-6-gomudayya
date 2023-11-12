@@ -10,4 +10,8 @@ public class BenefitDetails {
     public void addBenefit(BenefitType discountType, int amount) {
 
     }
+
+    public int getTotalBenefit() {
+        return 0;
+    }
 }

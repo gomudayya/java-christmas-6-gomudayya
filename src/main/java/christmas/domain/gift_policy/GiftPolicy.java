@@ -5,5 +5,6 @@ import christmas.domain.Order;
 
 public interface GiftPolicy {
     int getGiftAmount(Order order);
+
     BenefitType getBenefitType();
 }

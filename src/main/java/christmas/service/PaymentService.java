@@ -7,16 +7,15 @@ import christmas.domain.Order;
 import christmas.domain.Receipt;
 
 public class PaymentService {
-
-    private final BenefitSet discountPolicySet = new BenefitSet();
-
+    private final BenefitSet benefitSet = new BenefitSet();
 
     public Receipt getEstimatedReceipt(Order order) {
-        int totalBenefit = 0;
+        BenefitDetails benefitDetails = benefitSet.getBenefitDetails(order);
 
-        BenefitDetails discountDetails = discountPolicySet.getBenefitDetails(order);
+        int totalBenefit = benefitDetails.getTotalBenefit();
 
         Badge badge = Badge.getEligibleBadge(totalBenefit);
-        return null;
+
+        return new Receipt(order, benefitDetails, badge);
     }
 }
