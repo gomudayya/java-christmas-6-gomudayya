@@ -14,7 +14,7 @@ class DdayDiscountPolicyTest {
     DdayDiscountPolicy discountPolicy = new DdayDiscountPolicy();
     EnumMap<Menu, Integer> empty = new EnumMap<>(Menu.class);
 
-    @DisplayName("1일부터 25일까지는 dDay할인이 적용되어야 한다.")
+    @DisplayName("1일부터 25일까지는 D-Day 할인이 적용되어야 한다.")
     @Test
     void dDayDiscountTestForDay1_25() {
         int discountAmount = discountPolicy.getDiscountAmount(new Order(1, empty));
@@ -24,7 +24,7 @@ class DdayDiscountPolicyTest {
         assertThat(discountAmount).isEqualTo(3400);
     }
 
-    @DisplayName("26일 부터는 dDay할인이 적용되지 말아야 한다.")
+    @DisplayName("26일 부터는 D-Day 할인이 적용되지 말아야 한다.")
     @Test
     void dDayDiscountTestForOverDay25() {
         int discountAmount = discountPolicy.getDiscountAmount(new Order(26, empty));

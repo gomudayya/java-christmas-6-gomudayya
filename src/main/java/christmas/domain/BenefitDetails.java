@@ -22,11 +22,15 @@ public class BenefitDetails {
     public int getTotalBenefit() {
         int totalDiscountAmount = getTotalDiscountAmount();
 
-        int totalGiftAmountByMoney = giftInformation.entrySet().stream()
+        int totalGiftAmountAsMoney = getTotalGiftAmountAsMoney();
+
+        return totalDiscountAmount + totalGiftAmountAsMoney;
+    }
+
+    private int getTotalGiftAmountAsMoney() {
+        return giftInformation.entrySet().stream()
                 .mapToInt(entry -> entry.getKey().getPrice() * entry.getValue())
                 .sum();
-
-        return totalDiscountAmount + totalGiftAmountByMoney;
     }
 
     public int getTotalDiscountAmount() {

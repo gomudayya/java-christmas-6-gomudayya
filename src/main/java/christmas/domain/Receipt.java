@@ -17,7 +17,7 @@ public class Receipt {
         this.badge = badge;
     }
 
-    public Map<Menu, Integer> getOrder() {
+    public Map<Menu, Integer> getOrderList() {
         return order.getMenuQuantityMap();
     }
 

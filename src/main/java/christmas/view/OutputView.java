@@ -30,7 +30,7 @@ public class OutputView {
 
     private void printOrderDetails(Receipt receipt) {
         System.out.println("<주문 메뉴>");
-        Map<Menu, Integer> order = receipt.getOrder();
+        Map<Menu, Integer> order = receipt.getOrderList();
 
         order.forEach((menu, quantity) -> System.out.printf(MENU_QUANTITY_FORMAT, menu.getName(), quantity));
         System.out.println();
