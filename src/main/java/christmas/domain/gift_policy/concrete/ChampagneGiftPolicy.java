@@ -1,6 +1,5 @@
 package christmas.domain.gift_policy.concrete;
 
-import christmas.constant.Benefit;
 import christmas.constant.Menu;
 import christmas.domain.Order;
 import christmas.domain.gift_policy.GiftPolicy;

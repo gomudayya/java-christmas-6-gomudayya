@@ -1,10 +1,9 @@
 package christmas.domain;
 
 import christmas.constant.Badge;
-import christmas.constant.Benefit;
+import christmas.constant.DiscountType;
 import christmas.constant.Menu;
 
-import java.util.EnumMap;
 import java.util.Map;
 
 public class Receipt {
@@ -26,12 +25,12 @@ public class Receipt {
         return order.getTotalPrice();
     }
 
-    public Map<Menu, Integer> getGiftMenus() {
-        return benefitDetails.getGiftList();
+    public Map<DiscountType, Integer> getDiscountList() {
+        return benefitDetails.getDiscountList();
     }
 
-    public EnumMap<Benefit, Integer> getBenefitList() {
-        return benefitDetails.getBenefitList();
+    public Map<Menu, Integer> getGiftList() {
+        return benefitDetails.getGiftList();
     }
 
     public int getTotalBenefit() {

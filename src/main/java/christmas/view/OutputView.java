@@ -1,10 +1,9 @@
 package christmas.view;
 
-import christmas.constant.Benefit;
+import christmas.constant.DiscountType;
 import christmas.constant.Menu;
 import christmas.domain.Receipt;
 
-import java.util.EnumMap;
 import java.util.Map;
 
 public class OutputView {
@@ -13,7 +12,8 @@ public class OutputView {
     private final String MENU_QUANTITY_FORMAT = "%s %d개\n";
     private final String MONEY_FORMAT = "%,d원\n";
     private final String MINUS_MONEY_FORMAT = "-%,d원\n";
-    private final String BENEFIT_LIST_FORMAT = "%s: " + MINUS_MONEY_FORMAT;
+    private final String DISCOUNT_BENEFITS_FORMAT = "%s: " + MINUS_MONEY_FORMAT;
+    private final String GIFT_BENEFITS_FORMAT = "증정 이벤트:" + MINUS_MONEY_FORMAT;
 
     public void printEstimatedRecipe(Receipt receipt) {
         System.out.println("12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n");
@@ -44,7 +44,7 @@ public class OutputView {
 
     private void printGiftList(Receipt receipt) {
         System.out.println("<증정 메뉴>");
-        Map<Menu, Integer> giftMenus = receipt.getGiftMenus();
+        Map<Menu, Integer> giftMenus = receipt.getGiftList();
 
         if (giftMenus.isEmpty()) {
             System.out.println(NONE);
@@ -55,16 +55,17 @@ public class OutputView {
 
     private void printBenefitList(Receipt receipt) {
         System.out.println("<혜택 내역>");
-        EnumMap<Benefit, Integer> benefitList = receipt.getBenefitList();
+        Map<DiscountType, Integer> discountList = receipt.getDiscountList();
+        Map<Menu, Integer> giftList = receipt.getGiftList();
 
-        if (benefitList.isEmpty()) {
+        if (discountList.isEmpty() && giftList.isEmpty()) {
             System.out.println(NONE);
             return;
         }
-        if (!benefitList.isEmpty()) {
-            benefitList.forEach((benefit, money) -> System.out.printf(BENEFIT_LIST_FORMAT, benefit.getName(), money));
-        }
 
+        discountList.forEach((discountType, money) ->
+                System.out.printf(DISCOUNT_BENEFITS_FORMAT, discountType.getName(), money));
+        giftList.forEach((menu, quantity) -> System.out.printf(GIFT_BENEFITS_FORMAT, quantity * menu.getPrice()));
         System.out.println();
     }
 

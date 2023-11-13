@@ -1,6 +1,6 @@
 package christmas.domain.dicount_policy.concrete;
 
-import christmas.constant.Benefit;
+import christmas.constant.DiscountType;
 import christmas.domain.Order;
 import christmas.domain.dicount_policy.DiscountPolicy;
 
@@ -18,7 +18,7 @@ public class SpecialDiscountPolicy implements DiscountPolicy {
     }
 
     @Override
-    public Benefit getBenefitType() {
-        return Benefit.SPECIAL_DISCOUNT;
+    public DiscountType getDiscountType() {
+        return DiscountType.SPECIAL_DISCOUNT;
     }
 }

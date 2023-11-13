@@ -1,6 +1,6 @@
 package christmas.domain;
 
-import christmas.constant.Benefit;
+import christmas.constant.DiscountType;
 import christmas.constant.Menu;
 
 import java.util.Collections;
@@ -8,10 +8,10 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class BenefitDetails {
-    private final EnumMap<Benefit, Integer> discountInformation = new EnumMap<>(Benefit.class);
+    private final EnumMap<DiscountType, Integer> discountInformation = new EnumMap<>(DiscountType.class);
     private final EnumMap<Menu, Integer> giftInformation = new EnumMap<>(Menu.class);
 
-    public void addDiscountBenefit(Benefit discountType, int amount) {
+    public void addDiscountBenefit(DiscountType discountType, int amount) {
         discountInformation.put(discountType, amount);
     }
 
@@ -35,25 +35,11 @@ public class BenefitDetails {
                 .sum();
     }
 
-    public Map<Menu, Integer> getGiftList() {
-        return Collections.unmodifiableMap(giftInformation);
+    public Map<DiscountType, Integer> getDiscountList() {
+        return Collections.unmodifiableMap(discountInformation);
     }
 
-
-    public EnumMap<Benefit, Integer> getBenefitList() {
-        EnumMap<Benefit, Integer> benefitMap = new EnumMap(Benefit.class);
-
-        benefitMap.putAll(discountInformation);
-
-        if (!giftInformation.isEmpty()) {
-            benefitMap.put(Benefit.GIFT_EVENT, 0);
-
-            for (Map.Entry<Menu, Integer> entry : giftInformation.entrySet()) {
-                int money = entry.getKey().getPrice() * entry.getValue();
-                benefitMap.merge(Benefit.GIFT_EVENT, money, Integer::sum);
-            }
-        }
-
-        return benefitMap;
+    public Map<Menu, Integer> getGiftList() {
+        return Collections.unmodifiableMap(giftInformation);
     }
 }
