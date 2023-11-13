@@ -24,7 +24,6 @@ public class Controller {
         OrderDto orderDto = inputView.readOrder();
 
         Order order = orderDto.toOrder(dayDto);
-
         Receipt receipt = paymentService.getEstimatedReceipt(order);
 
         outputView.printEstimatedRecipe(receipt);

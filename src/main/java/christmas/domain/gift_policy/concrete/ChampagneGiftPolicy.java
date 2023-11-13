@@ -8,9 +8,6 @@ import static christmas.config.GiftConfig.CHAMPAGNE_THRESHOLD;
 
 
 public class ChampagneGiftPolicy implements GiftPolicy {
-    public boolean hasEligibility(Order order) {
-        return order.getTotalPrice() >= CHAMPAGNE_THRESHOLD;
-    }
 
     @Override
     public int getGiftAmount(Order order) {
