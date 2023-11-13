@@ -44,11 +44,14 @@ public class BenefitDetails {
         EnumMap<Benefit, Integer> benefitMap = new EnumMap(Benefit.class);
 
         benefitMap.putAll(discountInformation);
-        benefitMap.put(Benefit.GIFT_EVENT, 0);
 
-        for (Map.Entry<Menu, Integer> entry : giftInformation.entrySet()) {
-            int money = entry.getKey().getPrice() * entry.getValue();
-            benefitMap.merge(Benefit.GIFT_EVENT, money, Integer::sum);
+        if (!giftInformation.isEmpty()) {
+            benefitMap.put(Benefit.GIFT_EVENT, 0);
+
+            for (Map.Entry<Menu, Integer> entry : giftInformation.entrySet()) {
+                int money = entry.getKey().getPrice() * entry.getValue();
+                benefitMap.merge(Benefit.GIFT_EVENT, money, Integer::sum);
+            }
         }
 
         return benefitMap;

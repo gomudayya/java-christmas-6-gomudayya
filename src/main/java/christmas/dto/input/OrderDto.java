@@ -26,12 +26,6 @@ public class OrderDto {
         }
     }
 
-    private boolean hasOnlyBeverage() {
-        return menuQuantityMap.keySet().stream()
-                .allMatch(menu -> menu.belongToCategory(Category.BEVERAGE));
-    }
-
-
     private void validate(String input) {
         validateFormat(input);
         validateTotalCount(input);
@@ -70,6 +64,12 @@ public class OrderDto {
             menuQuantityMap.merge(Menu.getMenuByName(menuName), Integer.parseInt(quantity), Integer::sum);
         }
     }
+
+    private boolean hasOnlyBeverage() {
+        return menuQuantityMap.keySet().stream()
+                .allMatch(menu -> menu.belongToCategory(Category.BEVERAGE));
+    }
+
 
     public Order toOrder(DayDto dayDto) {
         return new Order(dayDto.getDayOfMonth(), menuQuantityMap);
