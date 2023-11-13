@@ -21,7 +21,6 @@ public class BenefitDetails {
 
     public int getTotalBenefit() {
         int totalDiscountAmount = getTotalDiscountAmount();
-
         int totalGiftAmountAsMoney = getTotalGiftAmountAsMoney();
 
         return totalDiscountAmount + totalGiftAmountAsMoney;

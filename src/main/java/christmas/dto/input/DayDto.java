@@ -20,7 +20,7 @@ public class DayDto {
         }
     }
 
-    public int  getDayOfMonth() {
+    public int getDayOfMonth() {
         return dayOfMonth;
     }
 }

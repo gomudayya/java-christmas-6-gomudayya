@@ -13,7 +13,7 @@ public class OutputView {
     private final String MONEY_FORMAT = "%,d원\n";
     private final String MINUS_MONEY_FORMAT = "-%,d원\n";
     private final String DISCOUNT_BENEFITS_FORMAT = "%s: " + MINUS_MONEY_FORMAT;
-    private final String GIFT_BENEFITS_FORMAT = "증정 이벤트:" + MINUS_MONEY_FORMAT;
+    private final String GIFT_BENEFITS_FORMAT = "증정 이벤트: " + MINUS_MONEY_FORMAT;
 
     public void printEstimatedRecipe(Receipt receipt) {
         System.out.println("12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n");
