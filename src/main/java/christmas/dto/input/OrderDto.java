@@ -4,6 +4,7 @@ import christmas.constant.Category;
 import christmas.constant.ErrorMessage;
 import christmas.constant.Menu;
 import christmas.domain.Order;
+import christmas.validator.OrderValidator;
 
 import java.util.Arrays;
 import java.util.EnumMap;
@@ -16,37 +17,15 @@ public class OrderDto {
     public OrderDto(String input) {
         input = input.replaceAll("\\s", "");
 
-        validate(input);
-        parseMenuOrder(input);
-        if (hasOnlyBeverage()) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
-        }
-    }
-
-    private void validate(String input) {
         validateFormat(input);
-        validateTotalCount(input);
+        parseMenuOrder(input);
+        OrderValidator.validateMenuQuantity(menuQuantityMap);
     }
 
     private void validateFormat(String input) {
         if (!pattern.matcher(input).matches()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
         }
-    }
-
-    private void validateTotalCount(String input) {
-        String[] menuAndQuantity = input.split(",");
-
-        if (getTotalOrderCount(menuAndQuantity) > 20) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
-        }
-    }
-
-    private static int getTotalOrderCount(String[] menuAndQuantity) {
-        return Arrays.stream(menuAndQuantity).mapToInt(menuQuantity -> {
-            String[] split = menuQuantity.split("-");
-            return Integer.parseInt(split[1]);
-        }).sum();
     }
 
     private void parseMenuOrder(String input) {
@@ -61,12 +40,6 @@ public class OrderDto {
             menuQuantityMap.merge(Menu.getMenuByName(menuName), Integer.parseInt(quantity), Integer::sum);
         }
     }
-
-    private boolean hasOnlyBeverage() {
-        return menuQuantityMap.keySet().stream()
-                .allMatch(menu -> menu.belongToCategory(Category.BEVERAGE));
-    }
-
 
     public Order toOrder(DayDto dayDto) {
         return new Order(dayDto.getDayOfMonth(), menuQuantityMap);

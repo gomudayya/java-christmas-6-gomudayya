@@ -2,6 +2,7 @@ package christmas.domain;
 
 import christmas.constant.Category;
 import christmas.constant.Menu;
+import christmas.validator.OrderValidator;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -16,14 +17,21 @@ public class Order {
     private final LocalDate localDate;
     private final EnumMap<Menu, Integer> menuQuantityMap;
 
-    public Order(LocalDate localDate, EnumMap<Menu, Integer> menuQuantityMap) {
-        this.localDate = localDate;
-        this.menuQuantityMap = menuQuantityMap;
-    }
-
     public Order(int dayOfMonth, EnumMap<Menu, Integer> menuQuantityMap) {
+        validate(dayOfMonth, menuQuantityMap);
         this.localDate = LocalDate.of(EVENT_YEAR, EVENT_MONTH, dayOfMonth);
         this.menuQuantityMap = menuQuantityMap;
+
+    }
+
+    private void validate(int dayOfMonth, EnumMap<Menu, Integer> menuQuantityMap) {
+        validateDayOfMonth(dayOfMonth);
+        OrderValidator.validateMenuQuantity(menuQuantityMap);
+    }
+    private void validateDayOfMonth(int dayOfMonth) {
+        if (dayOfMonth < 1 || dayOfMonth > 31) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public boolean isWeekendOrder() {
