@@ -1,7 +1,9 @@
 package christmas.domain;
 
 import christmas.constant.Category;
+import christmas.constant.ErrorMessage;
 import christmas.constant.Menu;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.util.EnumMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @DisplayName("Order의 각 비즈니스 메서드 테스트")
 class OrderTest {
@@ -26,6 +29,22 @@ class OrderTest {
         menuMap.put(Menu.CHAMPAGNE, 2); // 음료        // 25_000 * 2  // 총 합 = 314_000
 
         order = new Order(27, menuMap);
+    }
+
+    @Test
+    @DisplayName("유효하지 않은 Order 테스트")
+    void invalidOrderTest() {
+        EnumMap<Menu, Integer> onlyBeverage = new EnumMap<>(Menu.class);
+        onlyBeverage.put(Menu.ZERO_COLA, 3);
+
+        EnumMap<Menu, Integer> overMaxQuantity = new EnumMap<>(Menu.class);
+        overMaxQuantity.put(Menu.TAPAS, 21);
+
+        assertThatThrownBy(() -> new Order(22, onlyBeverage))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() -> new Order(11, overMaxQuantity))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

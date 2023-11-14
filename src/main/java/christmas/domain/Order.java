@@ -28,6 +28,7 @@ public class Order {
         validateDayOfMonth(dayOfMonth);
         OrderValidator.validateMenuQuantity(menuQuantityMap);
     }
+
     private void validateDayOfMonth(int dayOfMonth) {
         if (dayOfMonth < 1 || dayOfMonth > 31) {
             throw new IllegalArgumentException();
