@@ -2,9 +2,7 @@ package christmas.domain;
 
 import christmas.constant.DiscountType;
 import christmas.constant.Menu;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +39,7 @@ class ChristmasBenefitSetTest {
          */
     }
 
-
+    @DisplayName("혜택 내역을 올바르게 반환하는지 테스트")
     @Test
     void getBenefitDetails() {
         BenefitDetails benefitDetails = christmasBenefitSet.getBenefitDetails(order);
@@ -57,5 +55,18 @@ class ChristmasBenefitSetTest {
         assertThat(giftList).containsEntry(Menu.CHAMPAGNE, 1);
         assertThat(totalDiscountAmount).isEqualTo(3600);
         assertThat(totalBenefit).isEqualTo(28600);
+    }
+
+    @DisplayName("이벤트 최소 금액을 넘지 않는다면 혜택은 적용되지 않아야한다.")
+    @Test
+    void eventThresholdTest() {
+        EnumMap<Menu, Integer> menuQuantityMap = new EnumMap<>(Menu.class);
+        menuQuantityMap.put(Menu.TAPAS, 1);
+
+        Order noEventOrder = new Order(11, menuQuantityMap);
+
+        BenefitDetails benefitDetails = christmasBenefitSet.getBenefitDetails(noEventOrder);
+
+        assertThat(benefitDetails.getTotalBenefit()).isEqualTo(0);
     }
 }
