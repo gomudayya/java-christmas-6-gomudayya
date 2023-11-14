@@ -3,6 +3,7 @@ package christmas.domain;
 import christmas.constant.DiscountType;
 import christmas.constant.Menu;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,11 +16,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("이 클래스는 할인(Discount) 혜택 내용과 선물(Gift) 혜택 내용이 담긴 BenefitDetails를 넘겨주는 클래스이다.")
 class ChristmasBenefitSetTest {
     ChristmasBenefitSet christmasBenefitSet = new ChristmasBenefitSet();
-    Order order;
+    static Order order;
 
-    @BeforeEach
     @DisplayName("테스트용 order 만들기")
-    void createOrder() {
+    @BeforeAll
+    static void createOrder() {
         EnumMap<Menu, Integer> menuQuantityMap = new EnumMap<>(Menu.class);
 
         menuQuantityMap.put(Menu.TAPAS, 3);                 // 5500 * 3

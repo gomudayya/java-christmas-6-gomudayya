@@ -4,6 +4,7 @@ import christmas.constant.DiscountType;
 import christmas.constant.Menu;
 import christmas.domain.Order;
 import christmas.domain.Receipt;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,13 +16,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("주문에 대해 반환되는 영수증이 올바른지 테스트")
 class PaymentServiceTest {
-    PaymentService paymentService = new PaymentService();
-    Order order;
-    Receipt receipt;
+    static PaymentService paymentService = new PaymentService();
+    static Order order;
+    static Receipt receipt;
 
     @DisplayName("테스트용 주문과 영수증 생성하기")
-    @BeforeEach
-    void createTestOrder() {
+    @BeforeAll
+    static void createTestOrder() {
         EnumMap<Menu, Integer> menuQuantityMap = new EnumMap<>(Menu.class);
 
         menuQuantityMap.put(Menu.CHOCOLATE_CAKE, 5);        // 15000 * 5

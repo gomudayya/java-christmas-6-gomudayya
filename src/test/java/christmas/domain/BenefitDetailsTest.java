@@ -3,6 +3,7 @@ package christmas.domain;
 import christmas.constant.DiscountType;
 import christmas.constant.Menu;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,11 +13,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("BenefitDeteails의 각각의 비즈니스 메서드 테스트")
 class BenefitDetailsTest {
-    BenefitDetails benefitDetails;
+    static BenefitDetails benefitDetails;
 
     @DisplayName("테스트용 BenefitDetails 생성")
-    @BeforeEach
-    void createTestBenefitDetails() {
+    @BeforeAll
+    static void createTestBenefitDetails() {
         benefitDetails = new BenefitDetails();
 
         benefitDetails.addDiscountBenefit(DiscountType.SPECIAL_DISCOUNT, 1000);
