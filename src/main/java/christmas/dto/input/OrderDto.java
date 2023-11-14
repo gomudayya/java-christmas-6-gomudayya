@@ -16,13 +16,9 @@ public class OrderDto {
     public OrderDto(String input) {
         input = input.replaceAll("\\s", "");
 
-        try {
-            validate(input);
-            parseMenuOrder(input);
-            if (hasOnlyBeverage()) {
-                throw new IllegalArgumentException();
-            }
-        } catch (IllegalArgumentException e) {
+        validate(input);
+        parseMenuOrder(input);
+        if (hasOnlyBeverage()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
         }
     }
@@ -34,7 +30,7 @@ public class OrderDto {
 
     private void validateFormat(String input) {
         if (!pattern.matcher(input).matches()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
         }
     }
 
@@ -42,7 +38,7 @@ public class OrderDto {
         String[] menuAndQuantity = input.split(",");
 
         if (getTotalOrderCount(menuAndQuantity) > 20) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
         }
     }
 
