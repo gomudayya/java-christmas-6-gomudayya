@@ -9,8 +9,10 @@ import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
 
-public class Order {
+import static christmas.config.EventConfig.EVENT_MONTH;
+import static christmas.config.EventConfig.EVENT_YEAR;
 
+public class Order {
     private final LocalDate localDate;
     private final EnumMap<Menu, Integer> menuQuantityMap;
 
@@ -20,7 +22,7 @@ public class Order {
     }
 
     public Order(int dayOfMonth, EnumMap<Menu, Integer> menuQuantityMap) {
-        this.localDate = LocalDate.of(2023, 12, dayOfMonth);
+        this.localDate = LocalDate.of(EVENT_YEAR, EVENT_MONTH, dayOfMonth);
         this.menuQuantityMap = menuQuantityMap;
     }
 
