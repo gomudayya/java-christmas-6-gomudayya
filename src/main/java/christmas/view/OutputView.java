@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class OutputView {
 
-    private final String NONE = "없음";
+    private final String NONE = "없음\n";
     private final String MENU_QUANTITY_FORMAT = "%s %d개\n";
     private final String MONEY_FORMAT = "%,d원\n";
     private final String MINUS_MONEY_FORMAT = "-%,d원\n";
@@ -48,7 +48,9 @@ public class OutputView {
 
         if (giftMenus.isEmpty()) {
             System.out.println(NONE);
+            return;
         }
+
         giftMenus.forEach((menu, quantity) -> System.out.printf(MENU_QUANTITY_FORMAT, menu.getName(), quantity));
         System.out.println();
     }
@@ -74,7 +76,7 @@ public class OutputView {
         int totalBenefit = receipt.getTotalBenefit();
 
         if (totalBenefit == 0) {
-            System.out.printf(MONEY_FORMAT, totalBenefit);
+            System.out.printf(MONEY_FORMAT + "\n", totalBenefit);
             return;
         }
         if (totalBenefit > 0) {
