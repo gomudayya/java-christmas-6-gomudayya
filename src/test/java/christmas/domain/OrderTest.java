@@ -2,15 +2,12 @@ package christmas.domain;
 
 import christmas.constant.Category;
 import christmas.constant.Menu;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.EnumMap;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Order의 각 비즈니스 메서드 테스트")
 class OrderTest {
@@ -44,13 +41,13 @@ class OrderTest {
     @Test
     void isWeekend() {
         Order order = new Order(22, menuMap);
-        assertThat(order.isWeekend()).isTrue();
+        assertThat(order.isWeekendOrder()).isTrue();
     }
 
     @Test
     void isWeekday() {
         Order order = new Order(27, menuMap);
-        assertThat(order.isWeekday()).isTrue();
+        assertThat(order.isWeekdayOrder()).isTrue();
     }
 
 }

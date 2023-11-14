@@ -4,6 +4,7 @@ import christmas.constant.Menu;
 import christmas.domain.Order;
 import christmas.domain.gift_policy.GiftPolicy;
 
+import static christmas.config.EventConfig.DEFAULT_CHAMPAGNE_COUNT;
 import static christmas.config.GiftConfig.CHAMPAGNE_THRESHOLD;
 
 
@@ -12,8 +13,9 @@ public class ChampagneGiftPolicy implements GiftPolicy {
     @Override
     public int getGiftAmount(Order order) {
         if (order.getTotalPrice() >= CHAMPAGNE_THRESHOLD) {
-            return 1;
+            return DEFAULT_CHAMPAGNE_COUNT;
         }
+
         return 0;
     }
 

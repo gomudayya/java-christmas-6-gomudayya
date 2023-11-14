@@ -12,7 +12,7 @@ public class WeekdayDiscountPolicy implements DiscountPolicy {
     public int getDiscountAmount(Order order) {
         int dessertCount = order.countItemsInCategory(Category.DESSERT);
 
-        if (order.isWeekday() && dessertCount > 0) {
+        if (order.isWeekdayOrder() && dessertCount > 0) {
             return dessertCount * WEEKDAY_DISCOUNT_AMOUNT;
         }
 

@@ -24,10 +24,10 @@ public enum TestDate {
             Order weekendDayOrder = new Order(WEEKEND_DAY.getValue(), null);
             Order weekDayOrder = new Order(WEEKDAY.getValue(), null);
 
-            if (weekendDayOrder.isWeekday()) {
+            if (weekendDayOrder.isWeekdayOrder()) {
                 throw new IllegalArgumentException("WEEKEND_Day는 주말이어야 합니다");
             }
-            if (weekDayOrder.isWeekend()) {
+            if (weekDayOrder.isWeekendOrder()) {
                 throw new IllegalArgumentException("WEEKDAY는 평일이어야 합니다.");
             }
         }

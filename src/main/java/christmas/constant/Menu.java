@@ -35,11 +35,6 @@ public enum Menu {
         return this.category == category;
     }
 
-    public static boolean contain(String menuName) {
-        return Arrays.stream(values())
-                .anyMatch(menu -> menu.name.equals(menuName));
-    }
-
     public static Menu getMenuByName(String name) {
         return Arrays.stream(values())
                 .filter(menu -> menu.name.equals(name))

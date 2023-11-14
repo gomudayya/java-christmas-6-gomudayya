@@ -12,7 +12,7 @@ public class WeekendDiscountPolicy implements DiscountPolicy {
     public int getDiscountAmount(Order order) {
         int mainCourseCount = order.countItemsInCategory(Category.MAIN_COURSE);
 
-        if (order.isWeekend() && mainCourseCount > 0) {
+        if (order.isWeekendOrder() && mainCourseCount > 0) {
             return mainCourseCount * WEEKEND_DISCOUNT_AMOUNT;
         }
 

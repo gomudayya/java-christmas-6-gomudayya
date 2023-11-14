@@ -24,12 +24,12 @@ public class Order {
         this.menuQuantityMap = menuQuantityMap;
     }
 
-    public boolean isWeekend() {
+    public boolean isWeekendOrder() {
         return localDate.getDayOfWeek() == DayOfWeek.FRIDAY || localDate.getDayOfWeek() == DayOfWeek.SATURDAY;
     }
 
-    public boolean isWeekday() {
-        return !isWeekend();
+    public boolean isWeekdayOrder() {
+        return !isWeekendOrder();
     }
 
     public int countItemsInCategory(Category category) {
