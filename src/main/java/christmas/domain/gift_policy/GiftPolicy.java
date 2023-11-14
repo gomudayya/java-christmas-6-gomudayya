@@ -4,7 +4,7 @@ import christmas.constant.Menu;
 import christmas.domain.Order;
 
 public interface GiftPolicy {
-    int getGiftAmount(Order order);
+    int getGiftQuantity(Order order);
 
     Menu getGiftMenu();
 }

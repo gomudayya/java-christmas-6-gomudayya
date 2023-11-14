@@ -23,13 +23,13 @@ class ChampagneGiftPolicyTest {
         menuMap.put(Menu.CHOCOLATE_CAKE, 1);                            // 15_000 * 1     총 합 : 125_000
 
         Order order = new Order(23, menuMap);
-        assertThat(champagneGiftEvent.getGiftAmount(order)).isEqualTo(1);
+        assertThat(champagneGiftEvent.getGiftQuantity(order)).isEqualTo(1);
 
         menuMap.remove(Menu.CHOCOLATE_CAKE);                            //-15_000
         menuMap.put(Menu.ICE_CREAM, 2);                                 // + 5_000 * 2     총 합 : 120_000
 
         order = new Order(23, menuMap);
-        assertThat(champagneGiftEvent.getGiftAmount(order)).isEqualTo(1);
+        assertThat(champagneGiftEvent.getGiftQuantity(order)).isEqualTo(1);
     }
 
     @DisplayName("총 결제 금액이 12만원이 안되면 샴페인 수량 0개를 반환한다.")
@@ -40,6 +40,6 @@ class ChampagneGiftPolicyTest {
         menuMap.put(Menu.ICE_CREAM, 1);                                     // 5_000 * 1     총 합 : 115_000
 
         Order order = new Order(23, menuMap);
-        assertThat(champagneGiftEvent.getGiftAmount(order)).isEqualTo(0);
+        assertThat(champagneGiftEvent.getGiftQuantity(order)).isEqualTo(0);
     }
 }

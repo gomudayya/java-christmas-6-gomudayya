@@ -16,10 +16,10 @@ public class GiftPolicySet {
 
     public void summarizeGiftBenefit(BenefitDetails benefitDetails, Order order) {
         for (GiftPolicy giftPolicy : giftPolicies) {
-            int giftAmount = giftPolicy.getGiftAmount(order);
+            int giftQuantity = giftPolicy.getGiftQuantity(order);
 
-            if (giftAmount != 0) {
-                benefitDetails.addGiftBenefit(giftPolicy.getGiftMenu(), giftAmount);
+            if (giftQuantity != 0) {
+                benefitDetails.addGiftBenefit(giftPolicy.getGiftMenu(), giftQuantity);
             }
         }
     }
