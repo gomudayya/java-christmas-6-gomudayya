@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import christmas.config.OrderConfig;
 import christmas.constant.Category;
 import christmas.constant.ErrorMessage;
 import christmas.constant.Menu;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.EnumMap;
 
+import static christmas.config.OrderConfig.MAX_ORDER_QUANTITY;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -38,7 +40,7 @@ class OrderTest {
         onlyBeverage.put(Menu.ZERO_COLA, 3);
 
         EnumMap<Menu, Integer> overMaxQuantity = new EnumMap<>(Menu.class);
-        overMaxQuantity.put(Menu.TAPAS, 21);
+        overMaxQuantity.put(Menu.TAPAS, MAX_ORDER_QUANTITY + 1);
 
         assertThatThrownBy(() -> new Order(22, onlyBeverage))
                 .isInstanceOf(IllegalArgumentException.class);
