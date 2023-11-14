@@ -17,7 +17,7 @@ public class OrderValidator {
         if (hasOnlyBeverage(menuQuantityMap)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
         }
-        if (isOverMaxQuantity(menuQuantityMap)) {
+        if (isNotInRangeOfQuantity(menuQuantityMap)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
         }
     }
@@ -27,8 +27,8 @@ public class OrderValidator {
                 .allMatch(menu -> menu.belongToCategory(Category.BEVERAGE));
     }
 
-    private static boolean isOverMaxQuantity(EnumMap<Menu, Integer> menuQuantityMap) {
+    private static boolean isNotInRangeOfQuantity(EnumMap<Menu, Integer> menuQuantityMap) {
         int totalQuantity = menuQuantityMap.values().stream().mapToInt(Integer::intValue).sum();
-        return totalQuantity > MAX_ORDER_QUANTITY;
+        return totalQuantity > MAX_ORDER_QUANTITY || totalQuantity <= 0;
     }
 }
