@@ -6,19 +6,23 @@ public class DayDto {
     int dayOfMonth;
 
     public DayDto(String input) {
-        try {
-            int day = Integer.parseInt(input);
-            validateDay(day);
-
-            dayOfMonth = day;
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_DATE_ERROR.getMessage());
-        }
+        dayOfMonth = validateDay(input);
     }
 
-    private void validateDay(int day) {
+    private int validateDay(String input) {
+        int day = validateInteger(input);
         if (day < 1 || day > 31) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DATE_ERROR.getMessage());
+        }
+
+        return day;
+    }
+
+    private int validateInteger(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DATE_ERROR.getMessage());
         }
     }
 
