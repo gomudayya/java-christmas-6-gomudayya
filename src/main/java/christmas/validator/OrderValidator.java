@@ -12,6 +12,9 @@ import static christmas.config.OrderConfig.MAX_ORDER_QUANTITY;
 public class OrderValidator {
 
     public static void validateMenuQuantity(EnumMap<Menu, Integer> menuQuantityMap) {
+        if (menuQuantityMap == null) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
+        }
         if (hasOnlyBeverage(menuQuantityMap)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
         }

@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import java.util.EnumMap;
 
 import static christmas.config.OrderConfig.MAX_ORDER_QUANTITY;
+import static christmas.test_data.TempMenuQuantityMap.TEMP_MENU_QUANTITY_MAP;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -64,13 +65,13 @@ class OrderTest {
 
     @Test
     void isWeekend() {
-        Order order = new Order(22, null);
+        Order order = new Order(22, TEMP_MENU_QUANTITY_MAP);
         assertThat(order.isWeekendOrder()).isTrue();
     }
 
     @Test
     void isWeekday() {
-        Order order = new Order(27, null);
+        Order order = new Order(27, TEMP_MENU_QUANTITY_MAP);
         assertThat(order.isWeekdayOrder()).isTrue();
     }
 
