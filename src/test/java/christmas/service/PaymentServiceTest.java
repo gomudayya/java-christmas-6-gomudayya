@@ -5,7 +5,6 @@ import christmas.constant.Menu;
 import christmas.domain.Order;
 import christmas.domain.Receipt;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -41,13 +40,13 @@ class PaymentServiceTest {
          *          주말 할인 : BBQ 5개, 해산물 파스타 3개 = 총 2023 * 8 = 16184
          *          D-Day 할인 : 15일 -> 900 + 15 * 100 = 2400
          *          총 할인 금액 : 16184 + 2400 = 18584
-         *          
+         *
          *          선물(증정)내역
          *          총 결제금액이 12만원 이상이므로 샴페인 1개(25_000원) 선물(증정)
          *
          *          총 혜택 내역
          *          총 할인 금액 (18584)   + 선물(증정) 금액 (25000)  = 43584 -> 
-         *          
+         *
          *          뱃지
          *          혜택 내역이 20,000원을 넘어가므로 산타 뱃지 대상
          *
@@ -108,7 +107,7 @@ class PaymentServiceTest {
         int priceAfterDiscount = receipt.getPriceAfterDiscount();
         assertThat(priceAfterDiscount).isEqualTo(464_916);
     }
-    
+
     @DisplayName("혜택내역에 따라 뱃지를 올바르게 주는지 테스트")
     @Test
     void properBadgeTest() {

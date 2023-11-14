@@ -1,6 +1,5 @@
 package christmas.validator;
 
-import christmas.config.OrderConfig;
 import christmas.constant.Category;
 import christmas.constant.ErrorMessage;
 import christmas.constant.Menu;

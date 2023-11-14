@@ -2,14 +2,11 @@ package christmas.domain;
 
 import christmas.constant.DiscountType;
 import christmas.constant.Menu;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("BenefitDeteails의 각각의 비즈니스 메서드 테스트")
 class BenefitDetailsTest {
@@ -26,6 +23,7 @@ class BenefitDetailsTest {
 
         benefitDetails.addGiftBenefit(Menu.CHAMPAGNE, 1); // 샴페인가격 : 25000
     }
+
     @DisplayName("할인 혜택과 선물 혜택을 합한 값이 얼마인지 반환한다.")
     @Test
     void getTotalBenefit() {

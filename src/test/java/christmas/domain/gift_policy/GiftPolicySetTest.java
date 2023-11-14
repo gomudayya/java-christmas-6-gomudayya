@@ -13,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class GiftPolicySetTest {
     GiftPolicySet giftPolicySet = new GiftPolicySet();
+
     @DisplayName("12만원 이상 결제를 했으면 샴페인 선물의 대상이다.")
     @Test
     void summarizeGiftBenefit() {

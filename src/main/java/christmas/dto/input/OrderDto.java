@@ -1,12 +1,10 @@
 package christmas.dto.input;
 
-import christmas.constant.Category;
 import christmas.constant.ErrorMessage;
 import christmas.constant.Menu;
 import christmas.domain.Order;
 import christmas.validator.OrderValidator;
 
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.regex.Pattern;
 

@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.EnumMap;
 
+import static christmas.config.GiftConfig.DEFAULT_CHAMPAGNE_GIFT_QUANTITY;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("총 결제 금액이 12만원 이상이면 샴페인 이벤트의 자격이 있다.")
@@ -23,13 +24,13 @@ class ChampagneGiftPolicyTest {
         menuMap.put(Menu.CHOCOLATE_CAKE, 1);                            // 15_000 * 1     총 합 : 125_000
 
         Order order = new Order(23, menuMap);
-        assertThat(champagneGiftEvent.getGiftQuantity(order)).isEqualTo(1);
+        assertThat(champagneGiftEvent.getGiftQuantity(order)).isEqualTo(DEFAULT_CHAMPAGNE_GIFT_QUANTITY);
 
         menuMap.remove(Menu.CHOCOLATE_CAKE);                            //-15_000
         menuMap.put(Menu.ICE_CREAM, 2);                                 // + 5_000 * 2     총 합 : 120_000
 
         order = new Order(23, menuMap);
-        assertThat(champagneGiftEvent.getGiftQuantity(order)).isEqualTo(1);
+        assertThat(champagneGiftEvent.getGiftQuantity(order)).isEqualTo(DEFAULT_CHAMPAGNE_GIFT_QUANTITY);
     }
 
     @DisplayName("총 결제 금액이 12만원이 안되면 샴페인 수량 0개를 반환한다.")
