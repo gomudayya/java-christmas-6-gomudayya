@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class GiftPolicySet {
     private final Set<GiftPolicy> giftPolicies = new HashSet<>();
-
+    
     public GiftPolicySet() {
         giftPolicies.add(new ChampagneGiftPolicy());
     }

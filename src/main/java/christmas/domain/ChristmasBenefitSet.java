@@ -6,7 +6,7 @@ import christmas.domain.gift_policy.GiftPolicySet;
 
 import static christmas.config.EventConfig.EVENT_THRESHOLD;
 
-public class BenefitSet {
+public class ChristmasBenefitSet {
     private final DiscountPolicySet discountPolicySet = new DiscountPolicySet();
     private final GiftPolicySet giftPolicySet = new GiftPolicySet();
 
