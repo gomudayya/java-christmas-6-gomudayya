@@ -39,7 +39,7 @@ public enum Menu {
         return Arrays.stream(values())
                 .filter(menu -> menu.name.equals(name))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("해당하는 메뉴가 없습니다: " + name));
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage()));
     }
 
     public String getName() {
