@@ -1,6 +1,7 @@
-package christmas.domain;
+package christmas.domain.gift_policy;
 
 import christmas.constant.Menu;
+import christmas.domain.Order;
 import christmas.domain.gift_policy.concrete.ChampagneGiftPolicy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
