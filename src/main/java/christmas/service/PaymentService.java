@@ -13,7 +13,6 @@ public class PaymentService {
         BenefitDetails benefitDetails = christmasBenefitSet.getBenefitDetails(order);
 
         int totalBenefit = benefitDetails.getTotalBenefit();
-
         Badge badge = Badge.getEligibleBadge(totalBenefit);
 
         return new Receipt(order, benefitDetails, badge);
