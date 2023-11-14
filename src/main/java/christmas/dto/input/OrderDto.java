@@ -1,6 +1,7 @@
 package christmas.dto.input;
 
 import christmas.constant.Category;
+import christmas.constant.ErrorMessage;
 import christmas.constant.Menu;
 import christmas.domain.Order;
 
@@ -22,7 +23,7 @@ public class OrderDto {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER_ERROR.getMessage());
         }
     }
 
