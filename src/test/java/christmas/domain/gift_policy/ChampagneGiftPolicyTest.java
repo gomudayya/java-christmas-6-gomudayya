@@ -32,7 +32,7 @@ class ChampagneGiftPolicyTest {
         assertThat(champagneGiftEvent.getGiftAmount(order)).isEqualTo(1);
     }
 
-    @DisplayName("총 결제 금액이 12만d원이 안되면 샴페인 수량 0개를 반환한다.")
+    @DisplayName("총 결제 금액이 12만원이 안되면 샴페인 수량 0개를 반환한다.")
     @Test
     void dontHaveChampagneEligibility() {
         EnumMap<Menu, Integer> menuMap = new EnumMap<>(Menu.class);
