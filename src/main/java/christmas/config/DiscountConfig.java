@@ -3,7 +3,7 @@ package christmas.config;
 import java.util.Set;
 
 public class DiscountConfig {
-    public static final int D_DAY_DISCOUNT_BASE_AMOUNT = 900;
+    public static final int D_DAY_DISCOUNT_BASE_AMOUNT = 1000;
     public static final int D_DAY_DISCOUNT_AMOUNT_PER_DAY = 100;
     public static final int D_DAY_DISCOUNT_START_DAY = 1;
     public static final int D_DAY_DISCOUNT_END_DAY = 25;
